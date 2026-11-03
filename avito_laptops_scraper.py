@@ -32,7 +32,7 @@ with sync_playwright()as p:
 
     brosser.close()
     
-df = pd.DataFrame(data, columns=['tatle','price_dh','lien_prodwe'])
+df = pd.DataFrame(data,columns=['tatle','price_dh','lien_prodwe'])
 df = df.drop_duplicates()
 df = df.dropna()
 expensive = df[df['price_dh']>6000]
