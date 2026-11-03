@@ -40,7 +40,5 @@ print(expensive)
 df = df.sort_values(by='price_dh', ascending=False)
 with pd.ExcelWriter('laptop_clena.xlsx',engine='openpyxl') as writer:
     df.to_excel(writer,index=False,sheet_name='BOOKS')
-import os 
-print('mlf tkhl9:',os.path.abspath('laptop_clena.xlsx'))
-print('ana fin:',os.getcwd())
+df .to_csv('avito_laptops.csv',index=False,encoding='utf-8-sig')
 
