@@ -42,6 +42,7 @@ def sifet_rapport():
     print(df_alerte)
     with pd.ExcelWriter('adidass_clena.xlsx',engine='openpyxl') as writer:
         df.to_excel(writer,index=False,sheet_name='BOOKS')
+    df.to_csv('jumia_adidass/adidass_result.csv',index=False,encoding='utf-8-sig')
     gmail=os.getenv('GMAIL')
     gmail_persson= os.getenv('GMAIL_TO')
     pasword_gmail= os.getenv('GMAIL_PASSWORD')
@@ -62,6 +63,7 @@ def sifet_rapport():
     server.login(gmail,pasword_gmail)
     server.send_message(msg)
     server.quit()
+sifet_rapport()
 schedule.every().day.at("09:00").do(sifet_rapport)
 while True:
     schedule.run_pending()
